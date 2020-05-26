@@ -1,0 +1,92 @@
+/home/gansen/mysql/5.7.25/default/bin/mysqld, Version: 5.7.25-log (Source distribution). started with:
+Tcp port: 3306  Unix socket: /tmp/mysql.sock
+Time                 Id Command    Argument
+2020-05-26T18:40:12.367599Z	  234 Connect	root@10.0.0.103 on solidus_base using TCP/IP
+2020-05-26T18:40:12.376368Z	  234 Query	/* mysql-connector-java-5.1.41 ( Revision: 83c6dc41b96809df81444362933043b20a1d49d5 ) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_buffer_length AS net_buffer_length, @@net_write_timeout AS net_write_timeout, @@query_cache_size AS query_cache_size, @@query_cache_type AS query_cache_type, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@tx_isolation AS tx_isolation, @@wait_timeout AS wait_timeout
+2020-05-26T18:40:12.408403Z	  234 Query	SHOW WARNINGS
+2020-05-26T18:40:12.411278Z	  234 Query	SET NAMES latin1
+2020-05-26T18:40:12.411573Z	  234 Query	SET character_set_results = NULL
+2020-05-26T18:40:12.412169Z	  234 Query	SET autocommit=1
+2020-05-26T18:40:12.415222Z	  234 Quit	
+2020-05-26T18:40:12.419103Z	  235 Connect	root@10.0.0.103 on solidus_base using TCP/IP
+2020-05-26T18:40:12.419625Z	  235 Query	/* mysql-connector-java-5.1.41 ( Revision: 83c6dc41b96809df81444362933043b20a1d49d5 ) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_buffer_length AS net_buffer_length, @@net_write_timeout AS net_write_timeout, @@query_cache_size AS query_cache_size, @@query_cache_type AS query_cache_type, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@tx_isolation AS tx_isolation, @@wait_timeout AS wait_timeout
+2020-05-26T18:40:12.420225Z	  235 Query	SHOW WARNINGS
+2020-05-26T18:40:12.420989Z	  235 Query	SET NAMES latin1
+2020-05-26T18:40:12.421212Z	  235 Query	SET character_set_results = NULL
+2020-05-26T18:40:12.421423Z	  235 Query	SET autocommit=1
+2020-05-26T18:40:12.871016Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:12.959101Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_stock_items'
+2020-05-26T18:40:12.960591Z	  235 Query	SHOW FULL COLUMNS FROM `spree_stock_items` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:12.985393Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_stock_locations'
+2020-05-26T18:40:12.986500Z	  235 Query	SHOW FULL COLUMNS FROM `spree_stock_locations` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:14.323084Z	  235 Query	SELECT *
+FROM (SELECT `id`, `stock_location_id`
+FROM `spree_stock_items`) AS `t`
+INNER JOIN (SELECT `id`, `active`
+FROM `spree_stock_locations`
+WHERE `active` = TRUE) AS `t1` ON `t`.`stock_location_id` = `t1`.`id`
+2020-05-26T18:40:14.334104Z	  235 Query	SELECT *
+FROM `spree_stock_items`
+WHERE `deleted_at` IS NULL AND `stock_location_id` = 23
+2020-05-26T18:40:15.425055Z	  235 Query	SELECT *
+FROM (SELECT `id`, `stock_location_id`
+FROM `spree_stock_items`) AS `t`
+INNER JOIN (SELECT `id`, `active`
+FROM `spree_stock_locations`
+WHERE `active` = TRUE) AS `t1` ON `t`.`stock_location_id` = `t1`.`id`
+2020-05-26T18:40:15.432718Z	  235 Query	SELECT `id`, `stock_location_id`, `deleted_at`
+FROM `spree_stock_items`
+WHERE `deleted_at` IS NULL AND `stock_location_id` = 23
+2020-05-26T18:40:15.471665Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_option_values'
+2020-05-26T18:40:15.472964Z	  235 Query	SHOW FULL COLUMNS FROM `spree_option_values` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:15.510237Z	  235 Query	SELECT `id`, `position`, `name`, `presentation`, `option_type_id`, `created_at`, `updated_at`
+FROM `spree_option_values`
+GROUP BY `id`, `position`, `name`, `presentation`, `option_type_id`, `created_at`, `updated_at`
+2020-05-26T18:40:15.596832Z	  235 Query	SELECT `id`, `position`, `name`, `presentation`, `option_type_id`, `created_at`, `updated_at`
+FROM `spree_option_values`
+WHERE `name` LIKE '%Size-70%'
+GROUP BY `id`, `position`, `name`, `presentation`, `option_type_id`, `created_at`, `updated_at`
+2020-05-26T18:40:15.831609Z	  235 Query	SELECT *
+FROM (SELECT `id`, `stock_location_id`
+FROM `spree_stock_items`) AS `t`
+INNER JOIN (SELECT `id`, `active`
+FROM `spree_stock_locations`
+WHERE `active` = TRUE) AS `t1` ON `t`.`stock_location_id` = `t1`.`id`
+2020-05-26T18:40:15.837653Z	  235 Query	SELECT *
+FROM `spree_stock_items`
+WHERE `deleted_at` IS NULL AND `stock_location_id` = 26 AND `id` = 68
+2020-05-26T18:40:15.843099Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_product_properties'
+2020-05-26T18:40:15.844085Z	  235 Query	SHOW FULL COLUMNS FROM `spree_product_properties` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:15.932259Z	  235 Query	SELECT `position`
+FROM `spree_product_properties`
+WHERE `product_id` = 429
+2020-05-26T18:40:15.942857Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_products'
+2020-05-26T18:40:15.944155Z	  235 Query	SHOW FULL COLUMNS FROM `spree_products` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:15.946993Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_variants'
+2020-05-26T18:40:15.947868Z	  235 Query	SHOW FULL COLUMNS FROM `spree_variants` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:15.951732Z	  235 Query	SHOW FULL TABLES FROM `solidus_base` LIKE 'spree_prices'
+2020-05-26T18:40:15.952855Z	  235 Query	SHOW FULL COLUMNS FROM `spree_prices` FROM `solidus_base` LIKE '%'
+2020-05-26T18:40:16.198339Z	  235 Query	SELECT *
+FROM `spree_prices`
+WHERE `deleted_at` IS NULL
+2020-05-26T18:40:16.203788Z	  235 Query	SELECT *
+FROM (SELECT `id`, `available_on`, `deleted_at`
+FROM `spree_products`
+WHERE `deleted_at` IS NULL AND `available_on` <= TIMESTAMP '2020-05-16 05:17:20' AND `id` = 75) AS `t0`
+INNER JOIN (SELECT `id`, `is_master`, `product_id`
+FROM `spree_variants`
+WHERE `is_master` = TRUE) AS `t2` ON `t0`.`id` = `t2`.`product_id`
+2020-05-26T18:40:16.376827Z	  235 Query	SELECT *
+FROM `spree_prices`
+WHERE `deleted_at` IS NULL
+2020-05-26T18:40:16.382253Z	  235 Query	SELECT *
+FROM (SELECT `id`, `available_on`, `deleted_at`
+FROM `spree_products`
+WHERE `deleted_at` IS NULL AND `available_on` <= TIMESTAMP '2020-05-16 05:19:46' AND (`id` = 246 OR `id` = 248)) AS `t0`
+INNER JOIN (SELECT `id`, `is_master`, `product_id`
+FROM `spree_variants`
+WHERE `is_master` = TRUE) AS `t2` ON `t0`.`id` = `t2`.`product_id`
+2020-05-26T18:40:16.406129Z	  235 Query	SELECT `id`, `name`, `description`, `available_on`, `deleted_at`, `slug`, `meta_description`, `meta_keywords`, `tax_category_id`, `shipping_category_id`, `created_at`, `updated_at`, `promotionable`, `meta_title`
+FROM `spree_products`
+GROUP BY `id`, `name`, `description`, `available_on`, `deleted_at`, `slug`, `meta_description`, `meta_keywords`, `tax_category_id`, `shipping_category_id`, `created_at`, `updated_at`, `promotionable`, `meta_title`
+2020-05-26T18:40:29.498768Z	  233 Query	set global general_log = OFF
